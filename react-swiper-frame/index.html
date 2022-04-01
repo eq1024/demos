@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reactive-Swiper-Demo</title>
+</head> 
+<link href="https://cdn.bootcdn.net/ajax/libs/Swiper/7.4.1/swiper-bundle.min.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/Swiper/7.4.1/swiper-bundle.min.js"></script>
+<style>
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .swiper{
+        --swiper-pagination-color: #f0f0f0;
+    }
+</style>
+
+<body>
+    <div class="swiper" style="border: 2px skyblue solid;">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="https://placekitten.com/1200/450" alt=""></div>
+            <div class="swiper-slide"><img src="https://placekitten.com/1080/405" alt=""></div>
+            <div class="swiper-slide"><img src="https://placekitten.com/960/360" alt=""></div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</body>
+<script>
+    var mySwiper = new Swiper('.swiper', {
+        loop: true,
+        effect: 'fade',
+        autoplay: {
+            delay: 1000,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable :true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    })        
+</script>
+
+</html>

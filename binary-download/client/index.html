@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        background: #000;
+    }
+    #btn {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(2);
+        border: 2px solid #fff;
+        height: 20px;
+        width: auto;
+        background: white;
+        border-radius: 11px;
+        background: #ffffff;
+    }
+
+    #btn:hover {
+        box-shadow: 20px 20px 60px #d9d9d9,
+            -20px -20px 60px #ffffff;
+            transition: 0.5s;
+    }
+</style>
+
+<body>
+    <button id="btn" onclick="send_request()">DOWNLOAD</button>
+</body>
+<script>
+    function send_request() {
+        let ajax = new XMLHttpRequest()
+        ajax.open('GET', 'http://127.0.0.1:3000/d', true);
+        ajax.responseType = "blob";
+        ajax.send();
+        ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4 && (ajax.status == 200 || ajax.status == 304)) {
+                let blob = new Blob([ajax.response], {
+                    type: "image/jpeg",
+                })
+                let url = window.URL.createObjectURL(blob)
+                let ele = document.createElement("a")
+                ele.style.display = 'none'
+
+                // 设置href属性为文件路径，download属性可以设置文件名称          
+                ele.href = url
+                ele.download = "file"
+                // 将a标签添加到页面并模拟点击          
+                document.querySelectorAll("body")[0].appendChild(ele)
+                ele.click()
+                // 移除a标签          
+                ele.remove()
+                // console.log(ajax.responseText);
+            }
+        };
+    }
+</script>
+
+</html>
