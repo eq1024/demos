@@ -96,6 +96,7 @@ const test4 = new myPromise((resolve, reject) => {
 
 console.log(2);
 
+//context表示新的this指向
 Function.prototype.myBind = function (context) {
   var _t = this;
   var outArgs = Array.prototype.slice.call(arguments, 1);
@@ -111,6 +112,6 @@ Function.prototype.fbind = function (ctx) {
   const fn = this; //fn表示调用当前函数,也就是需要改变this的函数
   const ags1 = Array.prototype.slice.call(arguments, 1);
   return function fn(ags2) {
-    fn.apply(ctx,ags1.concat(ags2));
+    fn.apply(ctx, ags1.concat(ags2));
   };
 };

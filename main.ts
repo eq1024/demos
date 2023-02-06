@@ -1,6 +1,6 @@
 type z = number | string;
 let k: z[] = [1, 2, 3, '我'];
-
+declare const $: any;
 class App {
   static a = 1;
 }
@@ -9,7 +9,7 @@ console.log(App.a);
 
 type ss = (({ id: number } & { name: string }) | { id: number }) & { name: number };
 
-let s: ss = { 
+let s: ss = {
   id: 123,
-  name: '',
+  name: 1,
 };
