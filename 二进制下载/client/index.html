@@ -40,7 +40,8 @@
     function send_request() {
         let ajax = new XMLHttpRequest()
         ajax.open('GET', 'http://127.0.0.1:3000/d', true);
-        ajax.responseType = "blob";
+        // ajax.responseType = "blob";
+        ajax.responseType = "arraybuffer";
         ajax.send();
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4 && (ajax.status == 200 || ajax.status == 304)) {

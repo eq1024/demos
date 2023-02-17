@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { AxiosRequestConfig, AxiosResponse } from 'axios';
+import type { AxiosRequestConfig, AxiosResponse} from 'axios';
 
 const instance = axios.create({
   timeout: 1000 * 30,
@@ -19,7 +19,9 @@ type requestParmas = {
 };
 
 function get<T = any>(data:requestParmas): Promise<AxiosResponse<T>> {
-  return instance.get(data.url, data?.config);
+  console.log("zzzz",data.url, data.config);
+  
+  return instance(data.url, data?.config);
 }
 
 export default {
