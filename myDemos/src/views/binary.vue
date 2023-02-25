@@ -5,7 +5,7 @@
 
 <script setup lang="ts">
 import { getData, getFile } from '../api/http';
-function testMock() {
+function testMock() { 
   getData().then(
     (res: any) => {
       console.log(res);
