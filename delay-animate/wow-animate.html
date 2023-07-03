@@ -1,0 +1,24 @@
+<link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+<style>
+    .box {
+        width: 300px;
+        height: 300px;
+        background-color: #eeeeee;
+        margin-top: 1000px;
+    }
+</style>
+
+<div class="box wow animate__animated animate__swing"></div>
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+    var wow = new WOW({
+        //下面的内容都可以忽略
+        boxClass: 'wow',      // default
+        animateClass: 'animated', // default
+        offset: 0,          // default
+        mobile: true,       // default
+        live: true        // default
+    }).init();
+</script>
